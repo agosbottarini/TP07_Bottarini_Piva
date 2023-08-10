@@ -2,7 +2,7 @@ using System.Data.SqlClient;
 using Dapper;
 public static class BD
 {
-    public static List<Categoria> ObtenerCategorias()
+    public static List<Categorias> ObtenerCategorias()
     {
         List<Categoria> ListaCategoria = new List<ListaCategoria>();
         using(SqlConnection db = new SqlConnection(_connectionString))
@@ -22,13 +22,41 @@ public static class BD
         }
         return ListaDificultades;
     }
-    public static List<Pregunta> ObtenerPreguntas(int dificultad, int categoria)()
+    public static List<Preguntas> ObtenerPreguntas(int dificultad, int categoria)()
     {
-        if(dificultad != -1)
-        {
-            ObtenerDificultades();
-        }
+        string sql = "SELECT * FROM Preguntas";
+        List<Pregunta> ListaPreguntas = new List<Pregunta>();
+        DynamicParameters parametros = new DynamicParameters();
         
+        using(SqlConnection db = new SqlConnection(_connectionString))
+        {
+            if(dificultad != -1)
+            {
+                sql += "WHERE IdDificultad = @dificultad";
+                parametros.Add("@dificultad ", IdDificultad)
+            }
+            if(categoria != -1)
+            {
+                if(dificultad!= -1) sql += "AND"
+                else "WHERE"
+
+                sql += "IdCategoria = @categoria";
+                parametros.Add("@categoria", IdCategoria)  
+            }
+            ListaPreguntas = db.Query<Pregunta>(sql, parametros).ToList();
+        }
+    }
+    public static List<Respuestas> ObtenerRespuestas(List<Preguntas> preguntas)
+    {
+        List<Respuestas> ListaRespuestas = new List<Respuestas>();
+        foreach(Pregunta value in preguntas.IdPregunta)
+        {
+            using(SqlConnection db = new SqlConnection(_connectionString))
+            {
+                string sql = "SELECT * FROM Respuestas WHERE IdPregunta = @value.IdPregunta"
+                ListaRespuestas = db.Query<Respuestas>(sql, new {IdPregunta = value.IdPregunta})
+            }
+        }
     }
 
 

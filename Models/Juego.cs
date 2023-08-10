@@ -33,10 +33,10 @@ public static class Juego
         return ListaDificultades;
     }
 
-    public static CargarPartida(string username, int dificultad, int categoria)
+    public static void CargarPartida(string username, int dificultad, int categoria)
     {
-        ObtenerPreguntas();
-        ObtenerCategorias();
+        _preguntas = ObtenerPreguntas();
+        _respuestas = ObtenerRespuestas();
     }
     
     
