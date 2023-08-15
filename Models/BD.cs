@@ -5,11 +5,11 @@ public static class BD
     public static string _connectionString = @"localhost";
     public static List<Categorias> ObtenerCategorias()
     {
-        List<Categorias> ListaCategoria = new List<ListaCategoria>();
+        List<Categorias> ListaCategoria = new List<Categorias>();
         using(SqlConnection db = new SqlConnection(_connectionString))
         {
             string sql = "SELECT * FROM Categoria";
-            ListaCategoria = db.Query<Partido>(sql).ToList();
+            ListaCategoria = db.Query<Categorias>(sql).ToList();
         }
         return ListaCategoria;
     }
@@ -23,10 +23,10 @@ public static class BD
         }
         return ListaDificultades;
     }
-    public static List<Preguntas> ObtenerPreguntas(int dificultad, int categoria)()
+    public static List<Preguntas> ObtenerPreguntas(int dificultad, int categoria)
     {
         string sql = "SELECT * FROM Preguntas";
-        List<Pregunta> ListaPreguntas = new List<Pregunta>();
+        List<Preguntas> ListaPreguntas = new List<Preguntas>();
         DynamicParameters parametros = new DynamicParameters();
         
         using(SqlConnection db = new SqlConnection(_connectionString))
@@ -34,28 +34,35 @@ public static class BD
             if(dificultad != -1)
             {
                 sql += "WHERE IdDificultad = @dificultad";
-                parametros.Add("@dificultad ", IdDificultad)
+                parametros.Add("@dificultad ", "IdDificultad");
             }
             if(categoria != -1)
             {
-                if(dificultad!= -1) sql += "AND"
-                else "WHERE"
+                if(dificultad!= -1) 
+                {
+                    sql += "AND";
+                }
+                else
+                {
+                    sql += "WHERE";
+                }
 
                 sql += "IdCategoria = @categoria";
-                parametros.Add("@categoria", IdCategoria)  
+                parametros.Add("@categoria", "IdCategoria");  
             }
-            ListaPreguntas = db.Query<Pregunta>(sql, parametros).ToList();
+            ListaPreguntas = db.Query<Preguntas>(sql, parametros).ToList();
         }
     }
+
     public static List<Respuestas> ObtenerRespuestas(List<Preguntas> preguntas)
     {
         List<Respuestas> ListaRespuestas = new List<Respuestas>();
-        foreach(Pregunta value in Preguntas.IdPregunta)
+        foreach(Preguntas value in preguntas)
         {
             using(SqlConnection db = new SqlConnection(_connectionString))
             {
-                string sql = "SELECT * FROM Respuestas WHERE IdPregunta = @value.IdPregunta"
-                ListaRespuestas = db.Query<Respuestas>(sql, new {IdPregunta = value.IdPregunta})
+                string sql = "SELECT * FROM Respuestas WHERE IdPregunta = @value.IdPregunta";
+                ListaRespuestas = db.Query<Respuestas>(sql, new {IdPregunta = value.IdPregunta});
             }
         }
     }

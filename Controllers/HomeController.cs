@@ -32,8 +32,15 @@ public class HomeController : Controller
     public IActionResult Jugar()
     {
         ViewBag.Preguntas = Juego.ObtenerProximaPregunta();
-        ViewBag.Respuestas = Juego ObtenerProximasRespuestas();
-
-        if(Ob) 
+        ViewBag.username = _username;
+        
+        
+        
+        if(ObtenerProximaPregunta == null)
+        {
+            return View("Fin");
+        }
+        ViewBag.Respuestas = Juego.ObtenerProximasRespuestas();
+        return View("Juego");
     }
 }
