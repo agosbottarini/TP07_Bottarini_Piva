@@ -2,6 +2,7 @@ using System.Data.SqlClient;
 using Dapper;
 public static class BD
 {
+    public static string _connectionString = @"localhost";
     public static List<Categorias> ObtenerCategorias()
     {
         List<Categoria> ListaCategoria = new List<ListaCategoria>();
