@@ -50,7 +50,11 @@ public static class Juego
         List<Respuestas> ListaRespuestas = new  List<Respuestas>();
         foreach(Respuesta value in _preguntas)
         {
-            ListaRespuestas.Add(value.idPregunta);
+            if(value.IdPregunta = idPregunta)
+            {
+                ListaRespuestas.Add(value.idPregunta);
+            }
+            
         }
         return ListaRespuestas;
     }
