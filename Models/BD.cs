@@ -4,7 +4,7 @@ public static class BD
 {
     public static List<Categorias> ObtenerCategorias()
     {
-        List<Categoria> ListaCategoria = new List<ListaCategoria>();
+        List<Categorias> ListaCategoria = new List<ListaCategoria>();
         using(SqlConnection db = new SqlConnection(_connectionString))
         {
             string sql = "SELECT * FROM Categoria";
@@ -14,7 +14,7 @@ public static class BD
     }
     public static List<Dificultades> ObtenerDificultades()
     {
-        List<Dificultades> ListaDificultades = new List<ListaDificultades>();
+        List<Dificultades> ListaDificultades = new List<Dificultades>();
         using(SqlConnection db = new SqlConnection(_connectionString))
         {
             string sql = "SELECT * FROM Dificultades";

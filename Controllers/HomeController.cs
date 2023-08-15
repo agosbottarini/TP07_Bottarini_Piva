@@ -6,26 +6,34 @@ namespace TP07_Bottarini_Piva.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
-
-    public HomeController(ILogger<HomeController> logger)
-    {
-        _logger = logger;
-    }
-
     public IActionResult Index()
     {
         return View();
     }
 
-    public IActionResult Privacy()
+    public IActionResult ConfigurarJuego()
     {
+        Juego.InicializarJuego();
+        ViewBag.Categorias = Juego.ObtenerCategorias();
+        ViewBag.Dificultades = Juego.ObtenerDificultades();
         return View();
     }
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
+    public IActionResult Comenzar(string username, int dificultad, int categoria)
     {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        Juego.CargarPartida(username, dificultad, categoria);
+        if(Juego.ObtenerPreguntas() != null)
+        {
+            return View("Jugar");
+        }
+        return View("ConfigurarJuego");
+    }
+
+    public IActionResult Jugar()
+    {
+        ViewBag.Preguntas = Juego.ObtenerProximaPregunta();
+        ViewBag.Respuestas = Juego ObtenerProximasRespuestas();
+
+        if(Ob) 
     }
 }
