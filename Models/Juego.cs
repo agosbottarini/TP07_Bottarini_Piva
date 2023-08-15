@@ -35,9 +35,41 @@ public static class Juego
 
     public static void CargarPartida(string username, int dificultad, int categoria)
     {
-        _preguntas = ObtenerPreguntas();
-        _respuestas = ObtenerRespuestas();
+        _preguntas = BD.ObtenerPreguntas(dificultad, categoria);
+        _respuestas = BD.ObtenerRespuestas(_preguntas);
     }
+
+    public static Preguntas ObtenerProximaPregunta()
+    {
+        Pregunta preguntaProx;
+        preguntaProx = _preguntas[0]
+    }
+
+    public static List<Respuestas> ObtenerProximasRespuestas(int idPregunta)
+    {
+        List<Respuestas> ListaRespuestas = new  List<Respuestas>();
+        foreach(Respuesta value in _preguntas)
+        {
+            ListaRespuestas.Add(value.idPregunta);
+        }
+        return ListaRespuestas;
+    }
+
+    public static bool VerificarRespuesta(int idPregunta, int idRespuesta)
+    {
+        bool respuesta = false;
+        foreach(Respuesta item in _respuestas)
+        {
+            if(item.idRespuesta == true)
+            {
+                respuesta = true;
+                _puntajeActual += 5;
+                _respuestas.RemoveAt(0)
+            }
+        }
+        return respuesta;
+    }
+
     
     
 } 

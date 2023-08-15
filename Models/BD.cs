@@ -49,7 +49,7 @@ public static class BD
     public static List<Respuestas> ObtenerRespuestas(List<Preguntas> preguntas)
     {
         List<Respuestas> ListaRespuestas = new List<Respuestas>();
-        foreach(Pregunta value in preguntas.IdPregunta)
+        foreach(Pregunta value in Preguntas.IdPregunta)
         {
             using(SqlConnection db = new SqlConnection(_connectionString))
             {
