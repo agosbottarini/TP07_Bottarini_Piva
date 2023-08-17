@@ -52,6 +52,7 @@ public static class BD
             }
             ListaPreguntas = db.Query<Preguntas>(sql, parametros).ToList();
         }
+        return ListaPreguntas;
     }
 
     public static List<Respuestas> ObtenerRespuestas(List<Preguntas> preguntas)
@@ -62,9 +63,10 @@ public static class BD
             using(SqlConnection db = new SqlConnection(_connectionString))
             {
                 string sql = "SELECT * FROM Respuestas WHERE IdPregunta = @value.IdPregunta";
-                ListaRespuestas = db.Query<Respuestas>(sql, new {IdPregunta = value.IdPregunta});
+                ListaRespuestas = db.Query<Respuestas>(sql, new {IdPregunta = value.IdPregunta}).ToList();
             }
         }
+        return ListaRespuestas;
     }
 
 

@@ -22,7 +22,7 @@ public class HomeController : Controller
     public IActionResult Comenzar(string username, int dificultad, int categoria)
     {
         Juego.CargarPartida(username, dificultad, categoria);
-        if(Juego.ObtenerPreguntas() != null)
+        if(BD.ObtenerPreguntas(dificultad, categoria) != null)
         {
             return View("Jugar");
         }
@@ -32,15 +32,17 @@ public class HomeController : Controller
     public IActionResult Jugar()
     {
         ViewBag.Preguntas = Juego.ObtenerProximaPregunta();
-        ViewBag.username = _username;
         
-        
-        
-        if(ObtenerProximaPregunta == null)
+        if(Juego.ObtenerProximaPregunta() == null)
         {
             return View("Fin");
         }
         ViewBag.Respuestas = Juego.ObtenerProximasRespuestas();
         return View("Juego");
+    }
+
+    [HttpPost] public IActionResult VerificarRespuesta(int idPregunta, int idRespuesta)
+    {
+        
     }
 }

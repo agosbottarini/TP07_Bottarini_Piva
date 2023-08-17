@@ -1,8 +1,8 @@
 using System;
-class Dificultades
+public class Dificultades
 {
     public int IdDificultad{get;set;}
-    public string Nombre{get;set}
+    public string Nombre{get;set;}
 
     public Dificultades()
     {
