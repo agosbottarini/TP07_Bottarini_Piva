@@ -1,0 +1,39 @@
+<style>
+    body
+    {
+        background-color: none !important;
+    }
+</style>
+
+<div class="configuracion container_pagina">
+    <form>
+
+        <div class="confJuego2">
+            <p><strong>ELEGÍ LA DIFICULTAD</strong></p>
+            @foreach(Categorias item in ViewBag.Dificultades)
+            {
+                <a class="btn btn-secondary btn-lg" id="boton" style="width: 9vw;">@item.Nombre</a>
+            }
+
+            <p><strong>ELEGÍ LA CATEGORÍA</strong></p>
+
+            <a class="btn btn-secondary btn-lg" id="boton" style="width: 9vw; height: 4vw;">CULTURA POP</a>
+            <a class="btn btn-secondary btn-lg" id="boton" style="width: 9vw; height: 4vw;">CIENCIA Y TECNOLOGÍA</a>
+            <a class="btn btn-secondary btn-lg" id="boton" style="width: 9vw; height: 4vw;">DEPORTES Y JUEGOS</a>
+            <a class="btn btn-secondary btn-lg" id="boton" style="width: 9vw; height: 4vw;">ALEATORIO</a>
+            
+            <p><strong>INGRESA TU NOMBRE:</strong></p>
+            
+            <input type="text" class="form-control" style="width: 12vw; height: 4vw; display: inline-block;" placeholder="Ingresa tu nombre.....">
+            
+            <p></p>
+
+            <a class="btn btn-light btn-lg btn-outline-dark" id="boton" style="width: 13vw;" href='@Url.Action("Juego", "Home")'>JUGAR</a>
+            
+            
+        </div>
+    </form>
+
+
+    </div>
+</html>

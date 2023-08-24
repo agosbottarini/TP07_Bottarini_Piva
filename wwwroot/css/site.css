@@ -1,22 +1,84 @@
-html {
-  font-size: 14px;
+html
+{
+    height: 100% !important;
+    width: 100% !important;
+}
+.index
+{
+  background-color: blueviolet !important;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+.title
+{
+    margin-top: 20%;
+    color: white;
+    font-size: 8vw;
+    text-align: center;
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+.configuracion
+{
+    background-color: rgb(255, 255, 255) !important;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+.confJuego
+{
+    font-size: 2vw;
+    margin-top: 3%;
+    text-align: center;
 }
 
-body {
-  margin-bottom: 60px;
+.confJuego p
+{
+    margin-top: 3.5%;
+    margin-bottom: 3.5%;
+    color: rgb(119, 26, 206);
+}
+
+#id{
+    height: 3% !important;
+    width: 3% !important;
+}
+
+input[type="text"]::placeholder
+{
+    text-align: center;
+}
+
+.container_pagina
+{
+    padding: 3vw;
+}
+
+.confJuego2
+{
+    font-size: 2vw;
+    margin-top: 3%;
+    text-align: center;
+}
+
+
+.confJuego2 P
+{
+    margin-top: 3.5%;
+    margin-bottom: 3.5%;
+    color: rgb(0, 0, 0);
+}
+
+.confJuego2 img
+{
+    margin-bottom: 3.5%;
+}
+
+.exit
+{
+    display: flex !important;
+    flex-direction: row-reverse;
+}
+
+.ToLeft{
+    float: left;
+    left: 90%;
+    z-index: 0;
+    position: absolute;
 }

@@ -2,7 +2,7 @@ using System.Data.SqlClient;
 using Dapper;
 public static class BD
 {
-    public static string _connectionString = @"localhost";
+    public static string _connectionString = @"Server=localhost; DataBase=Preguntadort_Bottarini_Piva;Trusted_Connection=True;";
     public static List<Categorias> ObtenerCategorias()
     {
         List<Categorias> ListaCategoria = new List<Categorias>();

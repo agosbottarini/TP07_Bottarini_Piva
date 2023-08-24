@@ -26,7 +26,7 @@ public static class Juego
 
     public static List<Dificultades> ObtenerDificultades()
     {
-        List<Dificultades> ListaDificultades = new List<Dificultades>();
+        List<Dificultades> ListaDificultades = BD.ObtenerDificultades();
         return ListaDificultades;
     }
 
