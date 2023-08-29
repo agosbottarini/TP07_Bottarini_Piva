@@ -20,7 +20,7 @@ public static class Juego
 
     public static List<Categorias> ObtenerCategorias()
     {
-        List<Categorias> ListaCategoria = new  List<Categorias>();
+        List<Categorias> ListaCategoria = BD.ObtenerCategorias();
         return ListaCategoria;
     }
 

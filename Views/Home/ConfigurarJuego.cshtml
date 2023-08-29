@@ -9,26 +9,31 @@
     <form>
 
         <div class="confJuego2">
-            <p><strong>ELEGÍ LA DIFICULTAD</strong></p>
-            @foreach(Categorias item in ViewBag.Dificultades)
+            <p style="color: rgb(255, 255, 255);"><strong>ELEGÍ LA DIFICULTAD</strong></p>
+            <input type="hidden" name ="dificultad" id="dificultad" value ="0">
+            <input type="button" class="btn btn-secondary btn-lg"  style="width: 9vw;" onclick="ElegirDificultad(-1)" value ="ALEATORIO" id="dificultad -1">
+            @foreach(Dificultades item in ViewBag.Dificultades)
             {
-                <a class="btn btn-secondary btn-lg" id="boton" style="width: 9vw;">@item.Nombre</a>
+                <input type="button" class="btn btn-secondary btn-lg" style="width: 9vw;" onclick="ElegirDificultad(@item.IdDificultad)" value="@item.Nombre" id="dificultad @item.IdDificultad">
             }
 
-            <p><strong>ELEGÍ LA CATEGORÍA</strong></p>
-
-            <a class="btn btn-secondary btn-lg" id="boton" style="width: 9vw; height: 4vw;">CULTURA POP</a>
-            <a class="btn btn-secondary btn-lg" id="boton" style="width: 9vw; height: 4vw;">CIENCIA Y TECNOLOGÍA</a>
-            <a class="btn btn-secondary btn-lg" id="boton" style="width: 9vw; height: 4vw;">DEPORTES Y JUEGOS</a>
-            <a class="btn btn-secondary btn-lg" id="boton" style="width: 9vw; height: 4vw;">ALEATORIO</a>
+            <p style="color: rgb(255, 255, 255);"><strong>ELEGÍ LA CATEGORÍA</strong></p>
             
-            <p><strong>INGRESA TU NOMBRE:</strong></p>
+            <input type="hidden" name ="categoria" id="categoria" value ="">
+            <input type="button" class="btn btn-secondary btn-lg" style="width: 9vw;" onclick="ElegirCategoria(-1)" value="ALEATORIA" id="categoria -1">
+
+            @foreach(Categorias item in ViewBag.Categorias)
+            {
+                <input type="button" class="btn btn-secondary btn-lg" style="width: 9vw;" onclick="ElegirCategoria(@item.IdCategoria)" value="@item.Nombre" id="categoria @item.IdCategoria">
+            }
+            
+            <p style="color: rgb(255, 255, 255);"><strong>INGRESA TU NOMBRE:</strong></p>
             
             <input type="text" class="form-control" style="width: 12vw; height: 4vw; display: inline-block;" placeholder="Ingresa tu nombre.....">
             
             <p></p>
 
-            <a class="btn btn-light btn-lg btn-outline-dark" id="boton" style="width: 13vw;" href='@Url.Action("Juego", "Home")'>JUGAR</a>
+            <input type="submit" class="btn btn-light btn-lg btn-outline-dark"  style="width: 13vw;" href='@Url.Action("Juego", "Home")' value="JUGAR">
             
             
         </div>

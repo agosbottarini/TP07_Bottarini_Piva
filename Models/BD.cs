@@ -8,7 +8,7 @@ public static class BD
         List<Categorias> ListaCategoria = new List<Categorias>();
         using(SqlConnection db = new SqlConnection(_connectionString))
         {
-            string sql = "SELECT * FROM Categoria";
+            string sql = "SELECT * FROM Categorias";
             ListaCategoria = db.Query<Categorias>(sql).ToList();
         }
         return ListaCategoria;

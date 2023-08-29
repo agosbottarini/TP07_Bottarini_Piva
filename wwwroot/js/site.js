@@ -1,4 +1,14 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿function ElegirDificultad(id)
+{
+    document.getElementById("dificultad").value = id;
 
-// Write your JavaScript code.
+    document.getElementById(id).style.backgroundColor = 'red';
+}
+
+function ElegirCategoria(id)
+{
+    document.getElementById("categoria").value = id;
+    
+    document.getElementById(id).style.backgroundColor = 'red';
+    
+}
