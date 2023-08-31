@@ -1,14 +1,20 @@
-﻿function ElegirDificultad(id)
+﻿function ElegirDificultad(id) 
 {
     document.getElementById("dificultad").value = id;
-
-    document.getElementById("dificultad"+id).style.backgroundColor = 'red';
+    let dificultades =  document.getElementsByName("botondificultad");
+    for (let i=0; i<dificultades.length ; i++)
+    {
+        dificultades[i].style.backgroundColor= "grey";
+    }
+    document.getElementById("dificultad" + id).style.backgroundColor = "red";
 }
 
 function ElegirCategoria(id)
 {
-    document.getElementById("categoria" ).value = id;
-    
-    document.getElementById("categoria" + id).style.backgroundColor = 'red';
-    
+    let categorias =  document.getElementsByName("botoncategoria");
+    for (let i=0; i<categorias.length ; i++)
+    {
+        categorias[i].style.backgroundColor= "grey";
+    }
+    document.getElementById("categoria" + id).style.backgroundColor = "red";
 }

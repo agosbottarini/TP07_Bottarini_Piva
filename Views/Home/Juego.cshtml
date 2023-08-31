@@ -1,0 +1,27 @@
+<div class="configuracionFondo container_pagina">
+        
+        <a href="Index.html#" class="exit btn btn-danger ToLeft">Salir del juego</a><br><br>
+        <a href="Fin.html#" class="exit btn btn-danger ToLeft">Finalizar juego</a>
+
+        <p style="color: rgb(231, 205, 255); font-size: 1vw;"><strong>Username | puntaje</strong></p>
+    
+        <div class="confJuego2">
+
+            
+
+            @foreach(Preguntas item in ViewBag.proximaPregunta)
+            {
+                <h5 class="text-uppercase rounded mx-auto d-block"> @item.Nombre </h5>
+            }
+            
+            @if(ViewBag.Correcta)
+            {
+                <a class="btn btn-secondary btn-lg" id="boton" style="width: 9vw;" href="RespuestaCorrecta.html#">RTA 1</a>
+            }
+            else
+            {
+                <a class="btn btn-secondary btn-lg" id="boton" style="width: 9vw;" href="RespuestaIncorrecta.html#">RTA 2</a>
+            }
+        </div>
+
+    </div>

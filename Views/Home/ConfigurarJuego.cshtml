@@ -6,25 +6,29 @@
 </style>
 
 <div class="configuracion container_pagina">
-    <form>
+    <form action = '@Url.Action("Juego")' method="post">
 
         <div class="confJuego2">
             <p style="color: rgb(255, 255, 255);"><strong>ELEGÍ LA DIFICULTAD</strong></p>
-            <input type="hidden" name ="dificultad" id="dificultad" value ="0">
-            <input type="button" class="btn btn-secondary btn-lg"  style="width: 9vw;" onclick="ElegirDificultad(-1)" value ="ALEATORIO" id="dificultad-1">
+            <input type="hidden" name ="dificu  ltad" id="dificultad" value ="0">
+            <input type="button" class="btn btn-secondary btn-lg"  style="width: 9vw;" onclick="ElegirDificultad(-1)" value ="ALEATORIO" id="dificultad-1" name="botondificultad">
             @foreach(Dificultades item in ViewBag.Dificultades)
             {
-                <input type="button" class="btn btn-secondary btn-lg" style="width: 9vw;" onclick="ElegirDificultad(@item.IdDificultad)" value="@item.Nombre" id="dificultad@(item.IdDificultad)">
+                <input type="button" class="btn btn-secondary btn-lg" style="width: 9vw;" 
+                    onclick="ElegirDificultad(@item.IdDificultad)" value="@item.Nombre" 
+                    id="dificultad@(item.IdDificultad)" name="botondificultad">
             }
 
             <p style="color: rgb(255, 255, 255);"><strong>ELEGÍ LA CATEGORÍA</strong></p>
             
-            <input type="hidden" name ="categoria" id="categoria" value ="">
-            <input type="button" class="btn btn-secondary btn-lg" style="width: 9vw;" onclick="ElegirCategoria(-1)" value="ALEATORIA" id="categoria -1">
+            <input type="hidden" name ="categoria" id="categoria" value ="0">
+            <input type="button" class="btn btn-secondary btn-lg" style="width: 9vw;" onclick="ElegirCategoria(-1)" value="ALEATORIA" id="categoria-1" name="botoncategoria">
 
             @foreach(Categorias item in ViewBag.Categorias)
             {
-                <input type="button" class="btn btn-secondary btn-lg" style="width: 9vw;" onclick="ElegirCategoria(@item.IdCategoria)" value="@item.Nombre" id="categoria @item.IdCategoria">
+                <input type="button" class="btn btn-secondary btn-lg" style="width: 9vw;" 
+                onclick="ElegirCategoria(@item.IdCategoria)" value="@item.Nombre"
+                id="categoria@(item.IdCategoria)" name="botoncategoria">
             }
             
             <p style="color: rgb(255, 255, 255);"><strong>INGRESA TU NOMBRE:</strong></p>
