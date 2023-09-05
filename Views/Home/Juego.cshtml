@@ -1,27 +1,22 @@
 <div class="configuracionFondo container_pagina">
         
-        <a href="Index.html#" class="exit btn btn-danger ToLeft">Salir del juego</a><br><br>
-        <a href="Fin.html#" class="exit btn btn-danger ToLeft">Finalizar juego</a>
+        <a href="Index.html#" class="exit btn btn-danger ToLeft">Salir del juego</a>
 
-        <p style="color: rgb(231, 205, 255); font-size: 1vw;"><strong>Username | puntaje</strong></p>
+        <p style="color: rgb(231, 205, 255); font-size: 1vw;"><strong>@item.username</strong></p>
     
-        <div class="confJuego2">
-
-            
-
-            @foreach(Preguntas item in ViewBag.proximaPregunta)
-            {
-                <h5 class="text-uppercase rounded mx-auto d-block"> @item.Enunciado </h5>
+        <form action='@Url.Action("VerificarRespuesta")' method="post">
+    
+            @for(int i = 0; i < ViewBag.respuestas.Count; i++){
+                <input type="hidden" name = "idPregunta" value = "@ViewBag.respuestas[i].IdPregunta">
+                <input type="radio" class="btn-check" name="idRespuesta" id="opt@(i)" autocomplete="off" value = "@ViewBag.respuestas[i].IdRespuesta">
+                <label class="btn btn-outline-secondary" for="opt@(i)">@ViewBag.respuestas[i].contenido</label>
             }
             
-            @if(ViewBag.Correcta)
-            {
-                <a class="btn btn-secondary btn-lg" id="boton" style="width: 9vw;">RTA 1</a>
-            }
-            else
-            {
-                <a class="btn btn-secondary btn-lg" id="boton" style="width: 9vw;">RTA 2</a>
-            }
+        <div>
+            <input type="submit" class="btn btn-secondary" role="button" style=" width: 10em" value="Listo"><br>
         </div>
 
-    </div>
+        <h4>Username: @ViewBag.username</h4>
+        <h4>Puntos: @ViewBag.puntajeActual</h4>
+        
+        </form>

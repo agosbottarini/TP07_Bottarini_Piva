@@ -83,9 +83,45 @@ input[type="text"]::placeholder
     flex-direction: row-reverse;
 }
 
-.ToLeft{
+.ToLeft
+{
     float: left;
     left: 90%;
     z-index: 0;
     position: absolute;
 }
+
+.contenedor-fin 
+{
+    margin-top: 2em;
+    background: rgb(255, 255, 255);
+    border: 0.5em solid rgb(103, 39, 141);
+    border-radius: 5em;
+    width: 70em;
+    height: 55em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .contenedor-fin h1 
+  {
+    color: black;
+    font-size: 36px;
+    font-weight: bold;
+    font-family: "Fredoka One", sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding-bottom: 30px;
+  }
+  
+  .contenedor-fin img 
+  {
+    justify-content: center;
+    margin-top: 5em;
+    max-width: 50em;
+    max-height: 60em;
+  }
